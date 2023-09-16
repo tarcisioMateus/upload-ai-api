@@ -13,3 +13,26 @@ Content-Type: audio/mpeg
 
 < ./audio.mp3
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+# @name create-transcription
+POST http://localhost:3333/videos/28ba7c16-03ce-4cdd-84b3-c576dbdadf9e/transcription
+Content-Type: application/json
+
+{
+  "prompt": " wishing, all, my, life, be, you "
+}
+
+###
+
+# @name generate-completion
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+  "videoId": "28ba7c16-03ce-4cdd-84b3-c576dbdadf9e",
+  "template": "explain what is happenning here: '''{transcription}''' "
+}
+
+###
